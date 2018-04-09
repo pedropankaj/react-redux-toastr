@@ -5,9 +5,9 @@
   "main": "lib/index.js",
   "jsnext:main": "./src/index.js",
   "scripts": {
-    "start": "better-npm-run dev-server",
+    "start": "node init && better-npm-run dev-server",
     "dev_win": "NODE_ENV=development NODE_PORT=3000 ./node_modules/.bin/webpack-dev-server --hot --inline --config build/webpack.config.js",
-    "build": "./node_modules/.bin/babel src/ --out-dir lib && npm run sass && npm run postcss",
+    "build": "node init && ./node_modules/.bin/babel src/ --out-dir lib && npm run sass && npm run postcss",
     "sass": "./node_modules/.bin/node-sass src/styles/index.scss lib/css/react-redux-toastr.min.css --output-style compressed",
     "postcss": "./node_modules/.bin/postcss --u autoprefixer -o ./lib/css/react-redux-toastr.min.css ./lib/css/react-redux-toastr.min.css",
     "clean": "./node_modules/.bin/rimraf dist lib",
